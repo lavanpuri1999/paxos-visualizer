@@ -1,4 +1,4 @@
-const API_ROUTE = "http://127.0.0.1:8000";
+const API_ROUTE = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
 
 const MESSAGE_TYPE_TO_LABEL = {
     0: "Prepare Request",

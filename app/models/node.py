@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from .message import Message, MessageEncoder
 from ..enums.enums import NODE_PHASE, NODE_STATE, NodePhaseEncoder, NodeStateEncoder
 import json
-from typing import Optional
+from typing import Optional, List
 
 
 class Node(BaseModel):
@@ -19,8 +19,8 @@ class Node(BaseModel):
     max_proposal_num_seen : int
     max_accepted_value_seen: Optional[str]
 
-    message_queue: list[Message] = []
-    delivered_messages: list[Message] = []
+    message_queue: List[Message] = []
+    delivered_messages: List[Message] = []
 
     def __str__(self):
         res = (f"Node: {self.id}\nStatus: {self.current_state}, Phase: {self.current_phase}\n"
